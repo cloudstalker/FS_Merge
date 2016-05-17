@@ -14,8 +14,12 @@ namespace FS_Data_Glue
             Console.WriteLine("Input UV cycles:");
             string n = Console.ReadLine();
             int UV_cycle = Convert.ToInt32(n);
-            Console.WriteLine("Input Data Path:");
+            Console.WriteLine("Input Data Path: (Press Enter to use current directory)");
             string path = @Console.ReadLine();
+            if (path == @"")
+            {
+                path = System.IO.Directory.GetCurrentDirectory();
+            }
             GlueUtils GlueUtils = new GlueUtils();
             GlueUtils.CheckFile(UV_cycle, path);
             GlueUtils.Merge(UV_cycle, path);
@@ -40,7 +44,7 @@ namespace FS_Data_Glue
                     Console.WriteLine(p + "\\vis" + i.ToString() + ".csv does not exist");
                     counter++;
                 }
-                if (!System.IO.File.Exists(p + "\\uv" + i.ToString() + ".csv") && i!=0 && i!=10)
+                if (!System.IO.File.Exists(p + "\\uv" + i.ToString() + ".csv") && i!=0 && i!=n+1)
                 {
                     Console.WriteLine(p + "\\uv" + i.ToString() + ".csv does not exist");
                     counter++;
