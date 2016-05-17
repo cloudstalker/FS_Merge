@@ -74,7 +74,7 @@ namespace FS_Data_Glue
                     {
                         FileVis.ReadLine();
                         FileVis.ReadLine();
-                        for (int j = 3; j <= 37; j++)
+                        while (!FileVis.EndOfStream)
                         {
                             var line = FileVis.ReadLine();
                             var values = line.Split(',');
@@ -104,7 +104,7 @@ namespace FS_Data_Glue
                         {
                             FileUV.ReadLine();
                             FileUV.ReadLine();
-                            for (int j = 3; j <= 553; j++)
+                            while(!FileUV.EndOfStream)
                             {
                                 var line = FileUV.ReadLine();
                                 string[] values = line.Split(',');
